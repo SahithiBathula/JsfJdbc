@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"      
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+
+<h:body>       
+<h:form>
+
+             Agent Id :
+                <h:inputText id="agentId"
+                required="true"
+                label="Agent Id"
+                value="#{agent.agentid}" >
+                   <f:validateRequired/>
+               <f:validateLongRange maximum="100" minimum="1"/>
+                   
+               </h:inputText>
+                   <h:message for="empno" style="color:red" />
+               <br/><br/>
+                        
+            Agent Name :
+             <h:inputText id="name" value="#{agent.name}" required="true"
+              label="Agent Name" >
+              <f:validateRequired/>
+              <f:validateLength maximum="10" minimum="5"/>
+              </h:inputText>
+              <h:message for="name" style="color:red" />
+              <br/><br/>
+                             
+          City : 
+          <h:selectOneMenu id="city" value="#{agent.city}" required="true"
+              label="City" >   
+          <f:selectItem itemValue="Hyderabad" itemLabel="Hyderabad" />
+          <f:selectItem itemValue="Vizag" itemLabel="Vizag" />  
+          <f:selectItem itemValue="Chennai" itemLabel="Chennai" />  
+          <f:validateRequired />
+          </h:selectOneMenu> <br/><br/>    
+          <h:message for="city" style="color:red" />
+              
+          Gender :
+            <h:selectOneRadio id="gender" value="#{employ.gender}"  >
+            <f:selectItem itemValue="Male" itemLabel="Male" />
+            <f:selectItem itemValue="Female" itemLabel="Female" />
+            <f:validateRequired />
+            </h:selectOneRadio>  
+            <h:message for="gender" style="color:red" />
+           
+          MaritalStatus :
+             <h:selectOneMenu id="maritalstatus" value="#{agent.Maritalstatus}"
+             required="true" label="Designation" >
+             <f:selectItem itemValue="Single" itemLabel="Single" />
+             <f:selectItem itemValue="Married" itemLabel="Married" />
+             <f:selectItem itemValue="Others" itemLabel="Others" />
+             <f:validateRequired />
+             </h:selectOneMenu>  <br/><br/>    
+             <h:message for="desig" style="color:red" />
+            
+          Premium :
+           <h:inputText id="premium" value="#{agent.premium}" required="true" label="Premium" >   
+            <f:validateDoubleRange maximum="1000.0" minimum="5000.0"/>
+            <f:validateRequired />
+            </h:inputText> <br/><br/>  
+             <h:commandButton value ="Submit" action ="showagent" />
+                              
+       </h:form>
+</h:body>
+
+
+
+
+</html>
